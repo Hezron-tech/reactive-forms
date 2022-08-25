@@ -1,0 +1,57 @@
+
+
+<h1>Practice on reactive forms</h1>
+
+<div class="main">
+
+    <form [formGroup]="addForms" (ngSubmit)="addUser()">
+      
+      <div class="form-control">
+          <p>Username</p>
+        <input  type="text" formControlName="Username" name="Username" >
+
+       <div *ngIf="!addForms.get('Username')!.valid && addForms.get('Username')!.touched">
+        <p class="error" *ngIf="addForms.get('Username')!.errors!['required']">
+          *Name is required.
+        </p> 
+      </div>
+      
+       </div>
+        <p>Email</p>
+        <input type="email" formControlName="email">
+
+        <div *ngIf="!addForms.get('email')!.valid && addForms.get('email')!.touched">
+          <p class="error" *ngIf="addForms.get('email')!.errors!['required']">
+            *email is required.
+          </p> 
+        </div>
+
+        <p>Password</p>
+        <input type="text" formControlName="password">
+
+        <div *ngIf="!addForms.get('password')!.valid && addForms.get('password')!.touched">
+          <p class="error" *ngIf="addForms.get('password')!.errors!['special']">
+            *password special character is required.
+          </p> 
+        </div>
+        <p>confirm-password</p>
+        <input type="text" formControlName="conf_password">
+
+        <p>Bio</p>
+
+       <textarea name="Bio" id="" cols="30" rows="6">Bio</textarea> <br> <pre></pre>
+
+       <button type="submit">Add User</button>
+
+
+
+
+
+
+    </form>
+
+
+
+
+
+</div>
